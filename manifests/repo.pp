@@ -40,14 +40,14 @@ class zabbix::repo {
     /(RedHat|CentOS|Fedora|SLC)/: {
       yumrepo{ 'zabbix':
         descr    => "Zabbix Official Repository - ${::architecture}",
-        baseurl  => 'http://repo.zabbix.com/zabbix/2.2/rhel/6/$basearch/',
+        baseurl  => 'http://repo.zabbix.com/zabbix/2.2/rhel/$releasever/$basearch/',
         enabled  => 1,
         gpgcheck => 1,
         gpgkey   => 'http://repo.zabbix.com/RPM-GPG-KEY-ZABBIX',
       }
       yumrepo{ 'zabbix_non_supported':
         descr    => "Zabbix Official Repository non-supported - ${::architecture}",
-        baseurl  => 'http://repo.zabbix.com/non-supported/rhel/6/$basearch/',
+        baseurl  => 'http://repo.zabbix.com/non-supported/rhel/$releasever/$basearch/',
         enabled  => 1,
         gpgcheck => 1,
         gpgkey   => 'http://repo.zabbix.com/RPM-GPG-KEY-ZABBIX',
